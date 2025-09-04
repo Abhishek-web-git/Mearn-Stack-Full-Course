@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <caption>Login Form</caption>
+    <hr>
+                                                            <!-- input elements. placeholder attribute jo hota h wah box ke under kya h uska
+                                                             name batata h. -->
+    <form action="/action">
+
+        <div>
+            <label for="username">Username : </label>
+            <input type="text" placeholder="Enter Name" id="username" name="user">
+        </div>
+        
+        
+        <div>
+            <label for="password">Password : </label>
+            <input type="password" placeholder="Enter password" id="password" name="pass">
+        </div>
+        
+                                         <!-- Lable Ka use hum proper ek save lane ke liye karte h -->
+        <div>
+            <label for="email">Email : </label>
+            <input type="email" placeholder="Enter your Email" id="email">
+        </div>
+
+        <div>
+            <label for="date">Date : </label>
+            <input type="date" placeholder="Enter Date of Birth" id="date">            
+        </div>
+        
+        <div>
+            <label for="time">Time : </label>
+            <input type="time" placeholder="Enter time Duration" id="time">   
+        </div>
+       
+        <div>
+            <label for="age">Age : </label>
+            <input type="number" placeholder="Enter Phone Number" id="age">
+        </div><br>
+
+
+        <div>
+            <input type="checkbox" name="age" id="age">   
+            <label for="age"> I am 18+ </label><br>
+            <button>Submit</button>
+        </div><br>
+        <div>
+            <h2><b><i><u>Choose your Favorite Subjects :</u></i></b></h2>
+            <label for="sci">Science</label>
+            <input type="checkbox" name="sub" id="sci" value="sci">
+
+            <label for="eng">English</label>
+            <input type="checkbox" name="sub" id="eng" value="eng">
+
+            <label for="math">Math</label>
+            <input type="checkbox" name="sub" id="math" value="math">
+
+            <label for="hin">Hindi</label>
+            <input type="checkbox" name="sub" id="hin" value="hin">
+
+        </div><br>
+        <div>
+            <h3><b><i><u>Which fruits you like :</u></i> </b></h3>
+            <input type="radio" name="fruits" id="apple" value="apple">
+            <label for="apple">Apple</label>
+        </div>
+        <div>
+            <input type="radio" name="fruits" id="mango" value="mango">
+            <label for="mango">Mango</label>
+        </div>
+        <div>
+            <input type="radio" name="fruits" id="banana" value="banana">
+            <label for="banana">Banana</label>
+        </div>
+        <div>
+            <input type="radio" name="fruits" id="sweets" value="sweets">
+            <label for="sweets">Sweets</label>
+        </div>
+
+
+
+        <br>
+        <button type="submit">Submit</button>
+        <button type="button">Do Something</button>
+        <button type="reset">Reset</button>
+
+        <br>
+        <div>
+            Choose your Profession :--
+            <select name="profession" id="profession">
+                <option>Select here</option>                         <!--This is a select element [dropdown]-->
+                <option for="student">Student</option>
+                <option for="teach">Teacher</option>
+                <option for="staff">Staff</option>
+                <option for="dev">Developer</option>
+            </select>
+        </div>
+        
+    </form>
+
+    <!-- Forms ko banane ke liye hum do tag use karte h 
+     1.  Label  [ <label for="username">Username</label> ]
+     2.  Input  [ <input type="text" placeholder="Enter Name" id="username"> ]-->
+
+    <!--placeholder ka use box ke under jo name hota h uske liye karte h-->
+
+    <hr/>
+
+    <form action="https://www.youtube.com/results">
+        <input type="text" placeholder="search in youtube" name="search_query">
+        <button>Search</button>
+    </form>
+
+    <br>
+    <form action="/action">
+        <label for="vol">Select your volume</label>
+        <input type="range" id="vol" name="vol" min="0" max="100" step="25" value="50">   <!-- if you increase volume in steps, then use step attribute.-->
+        <button>Submit</button>
+        <button type="reset">Reset</button>
+        <br>
+
+        <!-- feedback area ko aise banaya jata h-->
+
+        <label for="feed">Give your valuable feedback : </label>
+        <textarea id="feed" placeholder="write your feedback..."></textarea>
+    </form>
+
+        
+</body>
+</html> 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice Questions</title>
+</head>
+<body>
+  <!-- Student Registraion Form -->
+  <table border="black">
+    <caption>Student Information</caption>
+    <tr>
+      <th rowspan="7">Info</th>
+      <th rowspan="2">S.l</th>
+      <th colspan="3">Address</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>city</th>
+      <th>House</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Abhishek Kumar</td>
+      <td>Parihar</td>
+      <td>Vishnupur</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Rajan Kumar</td>
+      <td>Sitamarhi</td>
+      <td>Sitamarhi</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Vivek Kumar</td>
+      <td>Vishnupur</td>
+      <td>Home Town</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Arvind Kumar</td>
+      <td>Tamilnadu</td>
+      <td>Chennai</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Keshav Kumar</td>
+      <td>UAE</td>
+      <td>Dubai</td>
+    </tr>
+  </table>
+  <br>
+<!-- Form -->
+
+  <h3><u>Form</u></h3>
+
+  <form action="/form">
+    <div>
+       <label for="user">Name:</label>
+      <input id="user" placeholder="Enter Name" type="text" name="user">
+    </div><br>
+    
+    <div>
+
+      Sex:
+      <input type="radio" for="male" value="male">
+      <label id="male">male</label>
+      <input type="radio" id="female" value="female">
+      <label id="female">female</label>
+    </div><br>
+
+<div>
+  Country:
+  <select type="Dropdown" id="cou">
+    <option>Select an option</option>
+  <option for="cou">India</option>
+  <option for="cou">Nepal</option>
+  <option for="cou">UAE</option>
+</select>
+
+</div><br>
+<div>
+  <label for="feed">Give your valuable feedback :</label>
+  <textarea id="feed" placeholder="Write your feedback..."></textarea>
+</div><br>
+<div>
+  <input type="checkbox" id="check">
+  <label for="check">Subscribe?</label>
+</div>
+<br>
+  <button type="submit" for="/form">Submit</button>
+  <button type="reset" >Reset</button>
+</form>
+<br>
+
+<!-- Feedback Form  -->
+  
+<h2><u>Feedback Form</u></h2>
+<form>
+  <div>
+    <label for="user">Name: </label>
+  <input type="text" id="user" placeholder="Enter Name" >
+
+  </div>
+  <br>
+  <div>
+     <label for="user">Email: </label>
+  <input type="text" id="user" placeholder="Email" >
+
+  </div><br>
+  <div>
+    <label for="feed">Message: </label><br>
+    <textarea id="feed" placeholder="Give your feedback.."></textarea>
+  </div>
+  <br>
+  <div>
+    Rate us our of 5:<br>
+    
+    <input id="rate" type="radio">
+    <label for="rate">1</label><br>
+    <input id="rate" type="radio">
+    <label for="rate">2</label><br>
+    <input id="rate" type="radio">
+    <label for="rate">3</label><br>
+    <input id="rate" type="radio">
+    <label for="rate">4</label><br>
+    <input id="rate" type="radio">
+    <label for="rate">5</label><br>
+    <input id="rate" type="radio">
+    <label for="rate">None of these</label>
+  </div><br>
+  
+  <button type="submit">Send your message!</button>
+  
+</form>
+
+</body>
+</html>

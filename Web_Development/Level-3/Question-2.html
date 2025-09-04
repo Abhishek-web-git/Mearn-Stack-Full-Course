@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="/server">
+
+        <div>
+            <label for="user">Name :</label>
+            <input type="text" placeholder="Enter Name" id="user" name="user">
+        </div>
+        <div>
+            
+            Sex :-
+            <input type="radio" id="sex" name="sex" value="male">
+            <label for="sex">male</label>
+            <input type="radio" id="sex" name="sex" value="female">
+            <label for="sex">female</label>
+        </div>
+        <div>
+            Country :-
+            <select id="cou">
+                <option>Select</option>
+                <option for="cou">India</option>
+                <option for="cou">Pakistan</option>
+                <option for="cou">America</option>
+            </select>
+        </div>
+        <div>
+            <label for="feed">Give Your valuable Feedback</label>
+            <textarea id="feed" placeholder="write your feedback"></textarea>
+        </div>
+        <div>
+            <input type="checkbox" id="check">
+            <label for="check">Subscribe!!</label>
+        </div>
+
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+        
+
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Udan Library</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      color: #2e2e2e;
+      padding: 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #004d40;
+      padding: 12px 20px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+    }
+
+    .navbar ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #00e5ff;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #00796b, #004d40);
+      color: white;
+      padding: 40px 20px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .logo {
+      width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 40px;
+      letter-spacing: 2px;
+    }
+
+    h2 {
+      text-align: center;
+      font-style: italic;
+      color: #004d40;
+      font-size: 20px;
+      margin: 25px 0;
+    }
+
+    ul {
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #ffffff;
+      padding: 15px 20px;
+      margin: 12px 0;
+      border-radius: 10px;
+      border-left: 6px solid #00796b;
+      box-shadow: 0 4px 10px rgba(0, 121, 107, 0.1);
+      font-size: 16px;
+    }
+
+    p i {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #00695c;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: linear-gradient(to right, #004d40, #00695c);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      border-radius: 15px;
+      font-size: 15px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    /* Forms */
+    .form-section {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .form-section h2 {
+      margin-bottom: 20px;
+      color: #00796b;
+    }
+
+    form input,
+    form textarea {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    form button {
+      background: #00796b;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    form button:hover {
+      background: #004d40;
+    }
+
+    /* Google Maps */
+    iframe {
+      border: 0;
+      border-radius: 10px;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: background 0.3s;
+      z-index: 1000;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #128c7e;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#membership">Membership</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#location">Location</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <img src="https://content3.jdmagicbox.com/comp/bundi/l6/9999px747.x747.230606181307.t4l6/catalogue/udaan-library-bundi-libraries-bf7iyj96km.jpg" alt="Udan Library Logo" class="logo">
+    <h1>Udan LIBRARY</h1>
+  </header>
+
+  <h2><i>Complete Reading Space</i></h2>
+
+  <ul>
+    <li>FULL/AC LIBRARY WITH ALL MODERN FACILITY</li>
+    <li>Important Magazine, Books & News Paper</li>
+    <li>Locker Facility</li>
+    <li>Fully Sound Proof & Wi-Fi (High Speed)</li>
+    <li>24*7 Security CCTV & RO Water Facility</li>
+    <li>Daily cleaning & 24*7 Power backup</li>
+    <li>Peaceful Environment</li>
+    <li>Parking Space Available</li>
+  </ul>
+
+  <p><i>Director: Rahul Kumar</i></p>
+
+  <!-- Membership Form -->
+  <section id="membership" class="form-section">
+    <h2>Apply for Membership</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="address" placeholder="Your Address" required />
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="form-section">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Google Maps -->
+  <section id="location" style="margin: 40px auto; text-align: center;">
+    <h2 style="margin-bottom: 15px;">📍 Our Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3597.8418184362235!2d85.17145047485093!3d25.610172014850928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed5994607e09d1%3A0x3980f2dad5074f22!2sSidhidatri%20villa!5e0!3m2!1sen!2sin!4v1750083618235!5m2!1sen!2sin" width="600" height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Add : 2nd & 3rd floor, Siddhidarti Villa, Rampur Nahar Road<br> Bazar Samiti, Patna - 800006</p>
+    <p><b>Mob : 9204523655, 8083592452</b></p>
+  </footer>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/919204523655" class="whatsapp-button" target="_blank">
+    💬 Chat on WhatsApp
+  </a>
+
+</body>
+</html>

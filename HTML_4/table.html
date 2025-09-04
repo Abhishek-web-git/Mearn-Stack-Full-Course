@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+    <!--Today we are learn how to create html table
+    table create karne ke liye sabse pahle hume row and colunm create karna hoga.
+    Step:-1. Row crearte karne ke liye hum (<tr>) tag use karenge.
+    Step:-2. colunm create karne ke liye hum (<th>) and (<td>) tag use karte h.
+    Step:-3. har ek colunm ke heading ke liye hum (<th>) tag use karte h. jabki data fill karne ke liye (<td>) tag use karte h.-->
+
+
+        <style>
+            table,th,td{
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 5px;
+                text-align: center;
+            }
+            caption{
+                background-color: rgba(0, 0, 0, 0.281);
+                text-align: center;
+            }
+            tfoot{
+                background-color: rgba(165, 42, 42, 0.532);
+            }
+            tbody{
+                background-color: aqua;
+                
+            }
+            thead{
+                background-color: blueviolet;
+            }
+        </style>
+
+
+    <table>
+        <caption> Demo for use table</caption>
+        <tr>
+            <thead>
+        <th>RollNo</th>
+        <th>Name</th>
+        <th>RegNo</th>
+        <th>Mobile No</th>
+        <th>Address</th>
+        </thead>
+        </tr>
+        
+        <tr>
+            <tbody>
+            <td>1</td>
+            <td>Abhishek Kumar</td>
+            <td>220101120179</td>
+            <td>6206679273</td>
+            <td>Bihar</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Keshav Kumar</td>
+            <td>220101120001</td>
+            <td>9572894770</td>
+            <td>Bihar</td>
+            <tr>
+                <tfoot>
+                <td colspan="5">This is summary use for demo.</td>
+                </tfoot>
+            </tr>
+            
+        </tbody>
+        </tr>
+    </table>
+    
+</body>
+</html>
+
+
+
+<!-- trick for create use table in html
+ Trick:-  [table>tr*x>td*x{val $}]-->
+ <!-- X means give the value-->
