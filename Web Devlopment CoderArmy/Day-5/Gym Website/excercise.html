@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise - FitLife Gym</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles & Variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #e74c3c;
+      --primary-dark: #c0392b;
+      --secondary: #2c3e50;
+      --accent: #3498db;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --gray: #95a5a6;
+      --success: #27ae60;
+      --text: #333;
+      --text-light: #fff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      background: linear-gradient(to bottom, #2c3e50, #1a2530);
+      color: var(--text-light);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header Styles */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGd5bSUyMGV4ZXJjaXNlfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 3rem 0;
+      margin-bottom: 2rem;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      color: var(--text-light);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    header p {
+      font-size: 1.3rem;
+      color: var(--primary);
+      font-style: italic;
+      font-weight: 500;
+    }
+    
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 2rem 0;
+    }
+    
+    .intro {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    
+    /* Exercise Section */
+    .exercise-section {
+      margin-bottom: 3rem;
+    }
+    
+    .exercise-section h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .video-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      backdrop-filter: blur(10px);
+    }
+    
+    .video-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .video-info {
+      padding: 1.5rem;
+    }
+    
+    .video-info h3 {
+      color: var(--text-light);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .video-info p {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    /* Categories Navigation */
+    .categories {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    
+    .categories h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .categories-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+    }
+    
+    .categories-list li a {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+    
+    .categories-list li a:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 2rem 0;
+      text-align: center;
+      margin-top: auto;
+    }
+    
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    
+    .footer-logo i {
+      color: var(--primary);
+      margin-right: 10px;
+    }
+    
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--text-light);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .social-links a:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .categories-list {
+        flex-direction: column;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+    
+    /* Back Button */
+    .back-btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: var(--transition);
+    }
+    
+    .back-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Exercise Library</h1>
+      <p>Transform Your Body, Transform Your Life.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Introduction -->
+    <section class="intro">
+      <p>Welcome to our comprehensive exercise library. Here you'll find professionally designed workout routines and exercise demonstrations to help you achieve your fitness goals. Whether you're looking to build muscle, increase endurance, or improve flexibility, we have workouts for every fitness level.</p>
+      <p>Each exercise includes detailed instructions and video demonstrations to ensure you're using proper form and technique for maximum effectiveness and safety.</p>
+    </section>
+
+    <!-- Categories Navigation -->
+    <section class="categories">
+      <h2>Exercise Categories</h2>
+      <ul class="categories-list">
+        <li><a href="#chest">Chest</a></li>
+        <li><a href="#back">Back</a></li>
+        <li><a href="#legs">Legs</a></li>
+        <li><a href="#shoulders">Shoulders</a></li>
+        <li><a href="#arms">Arms</a></li>
+        <li><a href="#core">Core</a></li>
+        <li><a href="#cardio">Cardio</a></li>
+      </ul>
+    </section>
+
+    <!-- Chest Workout -->
+    <section id="chest" class="exercise-section">
+      <h2>Chest Workout</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/xtEFVrwZFGU" 
+              title="Chest Workout Video" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Complete Chest Workout</h3>
+            <p>Build a stronger, more defined chest with these effective exercises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abs Workout -->
+    <section id="core" class="exercise-section">
+      <h2>Six Pack Abs Exercise</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/IrA9dvgRKR0" 
+              title="Abs Workout Video" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Core Strengthening Routine</h3>
+            <p>Develop strong, defined abs with this comprehensive core workout.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legs Workout -->
+    <section id="legs" class="exercise-section">
+      <h2>Legs Workout</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/nxi3dBw_JBQ" 
+              title="Legs Workout Video" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Lower Body Strength Training</h3>
+            <p>Build powerful legs with these effective lower body exercises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shoulders Workout -->
+    <section id="shoulders" class="exercise-section">
+      <h2>Shoulder Workout</h2>
+      <div class="videos-grid">
+        <div class="video-card">
+          <div class="video-container">
+            <iframe 
+              src="https://www.youtube.com/embed/byGit7i8Dmo" 
+              title="Shoulders Workout Video" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-info">
+            <h3>Shoulder Development Routine</h3>
+            <p>Build broader, stronger shoulders with these targeted exercises.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a href="index.html" class="back-btn">Back to Home</a>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-dumbbell"></i>
+        FitLife Gym
+      </div>
+      
+      <div class="footer-links">
+        <p>📍 Address: 123 Fitness Street, Sitamarhi, India</p>
+        <p>📞 Phone: +91 6206679273 | ✉ Email: abhi@gmail.com</p>
+      </div>
+      
+      <div class="social-links">
+        <a href="https://www.instagram.com/its_your_abhi045/"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100052727388113"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@Bodyrockboy"><i class="fab fa-youtube"></i></a>
+      </div>
+      
+      <p class="copyright">© 2025 Abhi Gym. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

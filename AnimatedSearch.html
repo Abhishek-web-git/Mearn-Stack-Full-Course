@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Search</title>
+</head>
+<body>
+  <!-- <h1 style="text-align: center; font-style: italic;">
+    Welcome our Page
+  </h1> -->
+
+<div id="main">
+  <label for="Search-input" class="visually-hidden">Search</label>
+  <input type="text" id="Search-input" name="text" autocomplete="off" class="input" aria-label="Search" placeholder="Search">
+</div>
+
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  #main {
+    position: relative;
+    text-align: center;
+  }
+
+  .input {
+    width: 220px;
+    padding: 12px 45px 12px 20px; /* space for icon */
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+  }
+
+  .input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .input:focus {
+    width: 350px; /* expand */
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  }
+
+  .input:focus::placeholder {
+    transform: translateX(10px);
+    opacity: 0.5;
+  }
+
+  /* Search icon */
+  #main::after {
+    content: "🔍";
+    font-size: 18px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    transition: transform 0.3s ease;
+  }
+
+  /* little bounce on hover */
+  #main:hover::after {
+    transform: translateY(-50%) scale(1.2);
+  }
+</style>
+
+  
+</body>
+</html>

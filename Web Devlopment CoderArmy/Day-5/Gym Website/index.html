@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek Fitness - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Base Styles & Variables */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    :root {
+      --primary: #e74c3c;
+      --primary-dark: #c0392b;
+      --secondary: #2c3e50;
+      --accent: #3498db;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --gray: #95a5a6;
+      --success: #27ae60;
+      --text: #333;
+      --text-light: #fff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      background-color: #f9f9f9;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: center;
+      padding: 1.5rem 0;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: var(--text-light);
+      margin-bottom: 0;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 15px;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    
+    /* Header Styles */
+    .subheading {
+      text-align: center;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--secondary);
+      padding: 0.5rem 0;
+      background-color: rgba(236, 240, 241, 0.8);
+    }
+    
+    /* Main Content */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Introduction Section */
+    .intro {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .intro p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .intro ol {
+      background-color: var(--light);
+      padding: 1.5rem 2rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    
+    .intro li {
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+    
+    /* Navigation */
+    nav {
+      background: linear-gradient(to right, var(--secondary), var(--dark));
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    nav ol {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    
+    nav li {
+      margin-bottom: 0;
+    }
+    
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      display: inline-block;
+    }
+    
+    nav a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      margin: 1rem 0;
+    }
+    
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-large {
+      display: block;
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 1.2rem 2.5rem;
+      margin: 2rem auto;
+      max-width: 300px;
+    }
+    
+    /* Banner Section */
+    .banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3ltfGVufDB8fDB8fHww&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      text-align: center;
+      padding: 4rem 2rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .banner ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    
+    .banner li {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .banner u {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    
+    /* Video Section */
+    .videos {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    
+    .video-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 8px 8px 0 0;
+    }
+    
+    footer p {
+      margin-bottom: 1rem;
+    }
+    
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+      font-weight: 600;
+    }
+    
+    footer a:hover {
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      nav ol {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      
+      .video-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .banner {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Abhishek Fitness</h1>
+  <h2 class="subheading"><i>Transform your body - one small win at a time.</i></h2>
+  
+  <div class="container">
+    <section class="intro">
+      <p>This website is for those serious about their fitness journey.</p>
+      <ol>
+        <li>Commit to your workout schedule</li>
+        <li>Push your limits consistently</li>
+        <li>Start simple, stay consistent. Personalized plans, pro coaches, and a community that pushes you forward. You'll be surprised how far one month will take you.</li>
+      </ol>
+    </section>
+
+    <nav>
+      <ol>
+        <li><a href="index.html">Home Page</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="excercise.html">Exercise</a></li>
+        <li><a href="diet.html">Diet Planning</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ol>
+      <button class="btn">Join Now, For Free Trial</button>
+    </nav>
+
+    <section class="banner">
+      <ul>
+        <li>Eye-catching Gym Environment</li>
+        <li>Motivational Headline: <b><u>"Transform your Body, Transform Your Life"</u></b></li>
+      </ul>
+      <button class="btn btn-large">Sign Up Today</button>
+    </section>
+
+    <section class="videos">
+      <h2>If You want Motivation then, watch these Videos</h2>
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/T6LVU9OGiTQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/EsywCqenLkU" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/M4CBCWl_xQQ" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/Wj2-qsZhXL0" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>📍 Address: 123 Fitness Street, Sitamarhi, India</p>
+    <p>📞 Phone: +91 6206679273 | ✉ Email: abhi@gmail.com</p>
+    <p>
+      Follow us:
+      <a href="https://www.instagram.com/its_your_abhi045/">Instagram</a> | 
+      <a href="https://www.facebook.com/profile.php?id=100052727388113">Facebook</a> | 
+      <a href="https://www.youtube.com/@Bodyrockboy">YouTube</a>
+    </p>
+  </footer>
+  
+</body>
+</html>

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diet Planning - FitLife</title>
+  <style>
+    /* Base Styles & Variables */
+    :root {
+      --primary: #e74c3c;
+      --primary-dark: #c0392b;
+      --secondary: #2c3e50;
+      --accent: #3498db;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --gray: #95a5a6;
+      --success: #27ae60;
+      --text: #333;
+      --text-light: #fff;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: #f9f9f9;
+    }
+    
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    h2 {
+      font-size: 2rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 15px;
+      margin-top: 2rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 1.5rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    /* Layout */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/></svg>');
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      text-align: center;
+      padding: 4rem 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    header h1 {
+      color: var(--text-light);
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Sections */
+    section {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    
+    /* Goal Selector */
+    #goal ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    #goal li {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+      transition: var(--transition);
+    }
+    
+    #goal li:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+    
+    #goal strong {
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      box-shadow: var(--shadow);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    thead {
+      background-color: var(--secondary);
+      color: var(--text-light);
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    tbody tr:hover {
+      background-color: #e9f7fe;
+    }
+    
+    th {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+    
+    /* Articles */
+    article {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    article:last-child {
+      border-bottom: none;
+    }
+    
+    /* Tips Section */
+    #tips ul {
+      list-style: none;
+      columns: 2;
+      column-gap: 2rem;
+    }
+    
+    #tips li {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+      position: relative;
+      break-inside: avoid;
+    }
+    
+    #tips li:before {
+      content: "✓";
+      color: var(--success);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Form Styles */
+    form {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      font-family: inherit;
+    }
+    
+    button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+    
+    #personal-plan {
+      background: #e8f4fc;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--accent);
+    }
+    
+    /* CTA Section */
+    #cta {
+      text-align: center;
+      background: linear-gradient(to right, var(--secondary), var(--primary-dark));
+      color: var(--text-light);
+    }
+    
+    #cta h2, #cta p {
+      color: var(--text-light);
+    }
+    
+    #cta a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 1rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid white;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+    
+    #cta a:hover {
+      background: white;
+      color: var(--primary);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: var(--text-light);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: var(--text-light);
+      text-decoration: underline;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      #tips ul {
+        columns: 1;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+      
+      #cta a {
+        display: block;
+        margin: 0.5rem auto;
+        max-width: 200px;
+      }
+      
+      table {
+        display: block;
+        overflow-x: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Diet Planning</h1>
+      <p>Create a simple, effective diet plan for your fitness goal.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Quick Goal Selector -->
+    <section id="goal">
+      <h2>Choose Your Goal</h2>
+      <p>Select the goal that best matches you to view a sample plan:</p>
+      <ul>
+        <li><strong>Weight Loss</strong> — Calorie deficit & high-protein meals</li>
+        <li><strong>Muscle Gain</strong> — Calorie surplus & protein + carbs</li>
+        <li><strong>Maintenance</strong> — Balanced macros to maintain weight</li>
+      </ul>
+      <p>Note: Customize calories based on your age, weight, height, and activity level.</p>
+    </section>
+
+    <!-- Sample Plans -->
+    <section id="plans">
+      <h2>Sample 7-Day Meal Plan (Overview)</h2>
+      <p>Below are sample days for three primary goals — you can repeat these for 7 days or add variety.</p>
+
+      <!-- Weight Loss - Sample Day -->
+      <article>
+        <h3>Weight Loss — Sample Day (Approx 1500 kcal)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food Items</th>
+              <th>Approx Calories</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Oats (1 cup) with skim milk + 1 banana + 1 tsp honey</td>
+              <td>350 kcal</td>
+              <td>High-fiber, slow carbs</td>
+            </tr>
+            <tr>
+              <td>Mid-Morning Snack</td>
+              <td>Greek yogurt (100 g) + handful almonds (10)</td>
+              <td>180 kcal</td>
+              <td>Protein + healthy fats</td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Grilled chicken (150 g) + mixed salad + 1 chapati or 1/2 cup brown rice</td>
+              <td>400 kcal</td>
+              <td>Lean protein + veggies</td>
+            </tr>
+            <tr>
+              <td>Evening Snack</td>
+              <td>Apple + peanut butter (1 tbsp)</td>
+              <td>150 kcal</td>
+              <td>Satiety before workout</td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Steamed fish or tofu + steamed veggies + small sweet potato</td>
+              <td>350 kcal</td>
+              <td>Light and protein-rich</td>
+            </tr>
+            <tr>
+              <td>Before Sleep (optional)</td>
+              <td>Warm milk (200 ml) or cottage cheese (50 g)</td>
+              <td>70 kcal</td>
+              <td>Slow-release protein</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Muscle Gain - Sample Day -->
+      <article>
+        <h3>Muscle Gain — Sample Day (Approx 3000 kcal)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food Items</th>
+              <th>Approx Calories</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>3 eggs omelette + 2 slices wholegrain bread + avocado</td>
+              <td>650 kcal</td>
+              <td>Protein + healthy fats</td>
+            </tr>
+            <tr>
+              <td>Mid-Morning</td>
+              <td>Smoothie: banana + milk + whey (1 scoop) + oats</td>
+              <td>400 kcal</td>
+              <td>Quick calories & protein</td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Brown rice (1.5 cups) + chicken breast (200 g) + veggies</td>
+              <td>800 kcal</td>
+              <td>Carb + protein heavy</td>
+            </tr>
+            <tr>
+              <td>Pre-Workout Snack</td>
+              <td>Peanut butter sandwich or dates + nuts</td>
+              <td>300 kcal</td>
+              <td>Energy for training</td>
+            </tr>
+            <tr>
+              <td>Post-Workout</td>
+              <td>Whey shake + banana</td>
+              <td>250 kcal</td>
+              <td>Fast protein & carbs</td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Salmon (200 g) + quinoa + salad</td>
+              <td>600 kcal</td>
+              <td>Protein & healthy fats</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <!-- Maintenance - Sample Day -->
+      <article>
+        <h3>Maintenance — Sample Day (Approx 2200 kcal)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Meal</th>
+              <th>Food Items</th>
+              <th>Approx Calories</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Breakfast</td>
+              <td>Poha/upma or 2 eggs + 1 fruit</td>
+              <td>400 kcal</td>
+              <td>Balanced start</td>
+            </tr>
+            <tr>
+              <td>Snack</td>
+              <td>Mixed nuts + fruit</td>
+              <td>200 kcal</td>
+              <td>Healthy fats</td>
+            </tr>
+            <tr>
+              <td>Lunch</td>
+              <td>Roti (2) + dal + sabzi + curd</td>
+              <td>700 kcal</td>
+              <td>Balanced carbs & protein</td>
+            </tr>
+            <tr>
+              <td>Snack</td>
+              <td>Tea + 2 digestive biscuits or sprouts chaat</td>
+              <td>200 kcal</td>
+              <td>Light energy</td>
+            </tr>
+            <tr>
+              <td>Dinner</td>
+              <td>Paneer curry + 1 roti + salad</td>
+              <td>500 kcal</td>
+              <td>Protein-rich vegetarian</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <!-- Nutrition Summary Example -->
+    <section id="nutrition-summary">
+      <h2>Nutrition Summary (Example for Weight Loss Day)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Macro</th>
+            <th>Grams</th>
+            <th>Calories</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Protein</td>
+            <td>110 g</td>
+            <td>440 kcal</td>
+          </tr>
+          <tr>
+            <td>Carbohydrates</td>
+            <td>150 g</td>
+            <td>600 kcal</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>40 g</td>
+            <td>360 kcal</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td></td>
+            <td><strong>1400 kcal (approx)</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>These numbers are examples — actual needs depend on personal factors.</p>
+    </section>
+
+    <!-- Tips and Guidelines -->
+    <section id="tips">
+      <h2>Diet Tips & Guidelines</h2>
+      <ul>
+        <li>Drink 2–3 liters of water daily.</li>
+        <li>Prioritize protein in each meal for muscle repair and satiety.</li>
+        <li>Include vegetables and fiber for digestion and fullness.</li>
+        <li>Control portion sizes and avoid late-night heavy meals.</li>
+        <li>Use whole foods over processed foods as much as possible.</li>
+        <li>Adjust calories gradually — don't make sudden large cuts.</li>
+      </ul>
+    </section>
+
+    <!-- Simple Personalization Form (prints values) -->
+    <section id="customize">
+      <h2>Quick Personalize (Print your selections)</h2>
+      <form onsubmit="return false;">
+        <label>
+          Name:
+          <input type="text" id="name" placeholder="Your name">
+        </label>
+        <br><br>
+        <label>
+          Goal:
+          <select id="goal-select">
+            <option value="weight-loss">Weight Loss</option>
+            <option value="muscle-gain">Muscle Gain</option>
+            <option value="maintenance">Maintenance</option>
+          </select>
+        </label>
+        <br><br>
+        <label>
+          Daily Calories (approx):
+          <input type="number" id="cal" placeholder="e.g., 2000">
+        </label>
+        <br><br>
+        <button type="button" onclick="printPlan()">Print / Show Plan</button>
+      </form>
+
+      <div id="personal-plan" aria-live="polite"></div>
+
+      <script>
+        function printPlan() {
+          var name = document.getElementById('name').value || 'Friend';
+          var goal = document.getElementById('goal-select').value;
+          var cal = document.getElementById('cal').value || 'your target';
+
+          var goalText = {
+            'weight-loss': 'Weight Loss',
+            'muscle-gain': 'Muscle Gain',
+            'maintenance': 'Maintenance'
+          }[goal];
+
+          var out = '<h3>Hi ' + name + ' — ' + goalText + ' Plan (' + cal + ' kcal/day)</h3>';
+          out += '<p>Use the sample day from the "' + goalText + '" section as a starting point. Adjust portion sizes to match your calories.</p>';
+          document.getElementById('personal-plan').innerHTML = out;
+          window.scrollTo(0, document.body.scrollHeight);
+        }
+      </script>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+      <h2>Need a Customized Plan?</h2>
+      <p>Contact our nutrition coach for a personalized meal plan and weekly tracking.</p>
+      <p><a href="contact.html">Contact a Coach</a> | <a href="#">Download Sample PDF</a></p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>📍 Address: 123 Fitness Street, Sitamarhi, India</p>
+      <p>📞 Phone: +91 6206679273 | ✉ Email: abhi@gmail.com</p>
+      <p>
+        Follow us:
+        <a href="https://www.instagram.com/its_your_abhi045/">Instagram</a> | 
+        <a href="https://www.facebook.com/profile.php?id=100052727388113">Facebook</a> | 
+        <a href="https://www.youtube.com/@Bodyrockboy">YouTube</a>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

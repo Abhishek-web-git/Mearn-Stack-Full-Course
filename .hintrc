@@ -9,7 +9,8 @@
       {
         "ignore": [
           "-webkit-text-size-adjust",
-          "image-rendering: crisp-edges"
+          "image-rendering: crisp-edges",
+          "backdrop-filter"
         ]
       }
     ],
@@ -24,7 +25,8 @@
       "default",
       {
         "input-button-name": "off",
-        "button-name": "off"
+        "button-name": "off",
+        "link-name": "off"
       }
     ],
     "button-type": "off",
@@ -55,6 +57,12 @@
       "default",
       {
         "list": "off"
+      }
+    ],
+    "axe/keyboard": [
+      "default",
+      {
+        "nested-interactive": "off"
       }
     ]
   }
